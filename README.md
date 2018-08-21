@@ -1,25 +1,24 @@
-# Cytoscape plugin for RedisGrah
+# Cytoscape plugin for RedisGraph
 
-Neo4j Graphs are often too large for Cytoscape: this plugin allows you to write Cypher queries and import the result as a network. 
+RedisGraph Graphs are often too large for Cytoscape: this plugin allows you to write Cypher queries and import the result as a network. 
 Queries can be parameterized and stored for reuse.  
 
-The plugin can be downloaded from the [Cytoscape App Store](http://apps.cytoscape.org/apps/cytoscapeneo4jplugin)
-
-Citation: [Mining functional annotations across species; Sven Warris, Steven Dijkxhoorn, Teije van Sloten, T.L.H. van de Vossenberg, bioRxiv, 2018](https://www.biorxiv.org/content/early/2018/07/16/369785)
-
+<!--
+The plugin can be downloaded from the [Cytoscape App Store](http://apps.cytoscape.org/apps/cytoscaperedsigraphplugin)
+-->
 
 ## Features
-Connects to Neo4j with a username/password using the Bolt interface.
+Connects to RedisGraph with a username/password using JRedisGraph.
 
 ### Importing graphs
 There are three main methods of importing a graph:
-- Import all nodes and edges from Neo4j into Cytoscape
+- Import all nodes and edges from RedisGraph into Cytoscape
 - Import a cypher query into Cystoscape
 - Import a stored query ([template](doc/template.md)) into Cytoscape
 
 ### Exporting networks
-The plugin allows you to export any Cytoscape Network to Neo4j. This can be an updated version of an imported graph or a network from a different source.  
-Nodes / relationships removed from a graph in Cytoscape will also result in these elements being removed from the Neo4j database after the export. 
+The plugin allows you to export any Cytoscape Network to RedisGraph. This can be an updated version of an imported graph or a network from a different source.  
+Nodes / relationships removed from a graph in Cytoscape will also result in these elements being removed from the RedisGraph database after the export. 
 
 ### Expanding nodes
 The plugin allows you to expand a single node, selected nodes or all nodes in the network at once. This way you can browse through your graph.
@@ -36,4 +35,4 @@ Context menu:
 
 ### Other features
 - Show all edges (relationships) between all nodes in the network or only between selected nodes.
-- Get the shortest paths from the database between the selected nodes. When more than two nodes are selected, all combinations will be queried: Neo4j does not allow shortest path calculations between more than two nodes (a.k.a. 'via').
+- Get the shortest paths from the database between the selected nodes. When more than two nodes are selected, all combinations will be queried: RedisGraph does not allow shortest path calculations between more than two nodes (a.k.a. 'via').
