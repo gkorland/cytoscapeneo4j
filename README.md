@@ -1,4 +1,4 @@
-# Cytoscape plugin for Neo4j
+# Cytoscape plugin for RedisGrah
 
 Neo4j Graphs are often too large for Cytoscape: this plugin allows you to write Cypher queries and import the result as a network. 
 Queries can be parameterized and stored for reuse.  
