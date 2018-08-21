@@ -1,0 +1,6 @@
+version: '3'
+services:
+  redisgraph:
+    image: "redislabs/redisgraph"
+    ports:
+      - 6379:6379

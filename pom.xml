@@ -4,13 +4,13 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>nl.corwur</groupId>
-    <artifactId>cytoscape-neo4j-plugin</artifactId>
-    <version>0.3</version>
-    <name>Cytoscape Neo4j Plugin</name>
+    <artifactId>cytoscape-redisgraph-plugin</artifactId>
+    <version>0.4</version>
+    <name>Cytoscape RedisGraph Plugin</name>
 
     <properties>
-        <bundle.symbolicName>nl.corwur.cytoscape.neo4j</bundle.symbolicName>
-        <bundle.namespace>nl.corwur.cytoscape.neo4j</bundle.namespace>
+        <bundle.symbolicName>com.redislabs.redisgraph</bundle.symbolicName>
+        <bundle.namespace>com.redislabs.redisgraph</bundle.namespace>
         <cytoscape.version>3.5.0</cytoscape.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.osgi.core.version>4.2.0</org.osgi.core.version>
@@ -142,14 +142,13 @@
                         <Private-Package>${bundle.namespace}.internal.*</Private-Package>
                         <Bundle-Activator>${bundle.namespace}.internal.CyActivator</Bundle-Activator>
                         <Embed-Dependency>
-                            gson,neo4j-java-driver;scope=compile|runtime
+                            gson,neo4j-java-driver,jredisgraph,jredisearch-jedis,cglib,commons-pool2,ant,ant-launcher;scope=compile|runtime
                         </Embed-Dependency>
                         <Embed-Transitive>true</Embed-Transitive>
-
                     </instructions>
                     <archive>
                         <manifestEntries>
-                            <Cytoscape-App-Name>Cypher Queries for Neo4j</Cytoscape-App-Name>
+                            <Cytoscape-App-Name>Cypher Queries for RedisGraph</Cytoscape-App-Name>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -161,7 +160,7 @@
                 <configuration>
                     <timestampedReports>false</timestampedReports>
                     <excludedClasses>
-                        <excludedClass>nl.corwur.cytoscape.neo4j.internal.Services</excludedClass>
+                        <excludedClass>nl.corwur.cytoscape.redisgraph.internal.Services</excludedClass>
                     </excludedClasses>
                 </configuration>
             </plugin>
@@ -184,6 +183,36 @@
 
     <!-- Dependencies needed to compile this project. -->
     <dependencies>
+        <dependency>
+      		<groupId>com.redislabs</groupId>
+      		<artifactId>jredisgraph</artifactId>
+      		<version>1.0.3</version>
+    	</dependency>
+	    <dependency>
+      		<groupId>org.apache.ant</groupId>
+      		<artifactId>ant</artifactId>
+      		<version>1.10.2</version>
+    	</dependency>
+ 		<dependency>
+      		<groupId>org.apache.ant</groupId>
+      		<artifactId>ant-launcher</artifactId>
+      		<version>1.10.2</version>
+    	</dependency>
+       	<dependency>
+	      	<groupId>cglib</groupId>
+      		<artifactId>cglib</artifactId>
+      		<version>3.0</version>
+    	</dependency>
+    	<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+			<version>2.0</version>
+		</dependency>
+    	<dependency>
+			<groupId>com.redislabs</groupId>
+			<artifactId>jredisearch-jedis</artifactId>
+			<version>3.0.0-20180508</version>
+		</dependency>
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
