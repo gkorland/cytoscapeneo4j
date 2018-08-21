@@ -8,9 +8,10 @@ import nl.corwur.cytoscape.redisgraph.internal.client.ClientGraphImplementation;
 import nl.corwur.cytoscape.redisgraph.internal.graph.Graph;
 import nl.corwur.cytoscape.redisgraph.internal.graph.commands.Command;
 import nl.corwur.cytoscape.redisgraph.internal.graph.implementation.GraphImplementation;
-import nl.corwur.cytoscape.redisgraph.internal.tasks.exportneo4j.ExportDifference;
-import nl.corwur.cytoscape.redisgraph.internal.tasks.exportneo4j.ExportNetworkConfiguration;
-import nl.corwur.cytoscape.redisgraph.internal.tasks.exportneo4j.ExportNew;
+import nl.corwur.cytoscape.redisgraph.internal.tasks.export.ExportDifference;
+import nl.corwur.cytoscape.redisgraph.internal.tasks.export.ExportNetworkConfiguration;
+import nl.corwur.cytoscape.redisgraph.internal.tasks.export.ExportNew;
+
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.work.AbstractTask;
 import org.cytoscape.work.TaskMonitor;

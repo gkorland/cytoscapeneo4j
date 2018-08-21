@@ -36,7 +36,7 @@ class GraphFactory {
 	
     GraphObject create(Record record) {
     	
-        GraphResult neo4jResult = new GraphResult();
+        GraphResult result = new GraphResult();
         
         
         Map<String, Value> sourceProps = new HashMap<String, Value>();
@@ -53,11 +53,11 @@ class GraphFactory {
         Node sourceNode = new InternalNode(Long.parseLong(record.getString("id(n)")), new ArrayList<>() , sourceProps);
         Node targetNode = new InternalNode(Long.parseLong(record.getString("id(m)")), new ArrayList<>() , targetProps);
         Relationship relationship = new InternalRelationship(relationshipId.incrementAndGet(), sourceNode.id(), targetNode.id(), "");
-        neo4jResult.add("n", create(sourceNode));
-        neo4jResult.add("m", create(targetNode));
-        neo4jResult.add( "r", create(relationship));
+        result.add("n", create(sourceNode));
+        result.add("m", create(targetNode));
+        result.add( "r", create(relationship));
         
-        return neo4jResult;
+        return result;
     }
 
     private GraphObject create(Value value) {

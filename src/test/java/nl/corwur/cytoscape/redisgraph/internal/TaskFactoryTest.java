@@ -7,7 +7,7 @@ import nl.corwur.cytoscape.redisgraph.internal.tasks.AbstractImportTask;
 import nl.corwur.cytoscape.redisgraph.internal.tasks.ExportNetworkToNeo4jTask;
 import nl.corwur.cytoscape.redisgraph.internal.tasks.ImportQueryTemplateTask;
 import nl.corwur.cytoscape.redisgraph.internal.tasks.TaskFactory;
-import nl.corwur.cytoscape.redisgraph.internal.tasks.exportneo4j.ExportNetworkConfiguration;
+import nl.corwur.cytoscape.redisgraph.internal.tasks.export.ExportNetworkConfiguration;
 import nl.corwur.cytoscape.redisgraph.internal.tasks.querytemplate.CypherQueryTemplate;
 import org.junit.Test;
 import org.junit.runner.RunWith;

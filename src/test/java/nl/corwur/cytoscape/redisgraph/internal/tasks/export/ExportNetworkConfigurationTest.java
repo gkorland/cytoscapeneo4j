@@ -1,6 +1,8 @@
-package nl.corwur.cytoscape.redisgraph.internal.tasks.exportneo4j;
+package nl.corwur.cytoscape.redisgraph.internal.tasks.export;
 
 import nl.corwur.cytoscape.redisgraph.internal.graph.implementation.NodeLabel;
+import nl.corwur.cytoscape.redisgraph.internal.tasks.export.ExportNetworkConfiguration;
+
 import org.cytoscape.model.CyEdge;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyNode;

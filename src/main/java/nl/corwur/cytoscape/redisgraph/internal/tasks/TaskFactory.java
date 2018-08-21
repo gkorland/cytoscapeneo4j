@@ -2,7 +2,7 @@ package nl.corwur.cytoscape.redisgraph.internal.tasks;
 
 import nl.corwur.cytoscape.redisgraph.internal.Services;
 import nl.corwur.cytoscape.redisgraph.internal.client.CypherQuery;
-import nl.corwur.cytoscape.redisgraph.internal.tasks.exportneo4j.ExportNetworkConfiguration;
+import nl.corwur.cytoscape.redisgraph.internal.tasks.export.ExportNetworkConfiguration;
 import nl.corwur.cytoscape.redisgraph.internal.tasks.importgraph.DefaultImportStrategy;
 import nl.corwur.cytoscape.redisgraph.internal.tasks.querytemplate.CypherQueryTemplate;
 

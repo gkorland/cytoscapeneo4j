@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This class represents a Neo4j Cypher query.
+ * This class represents a Cypher query.
  */
 public class CypherQuery {
 

@@ -4,7 +4,7 @@ import nl.corwur.cytoscape.redisgraph.internal.Services;
 import nl.corwur.cytoscape.redisgraph.internal.graph.implementation.Label;
 import nl.corwur.cytoscape.redisgraph.internal.graph.implementation.NodeLabel;
 import nl.corwur.cytoscape.redisgraph.internal.tasks.ExportNetworkToNeo4jTask;
-import nl.corwur.cytoscape.redisgraph.internal.tasks.exportneo4j.ExportNetworkConfiguration;
+import nl.corwur.cytoscape.redisgraph.internal.tasks.export.ExportNetworkConfiguration;
 import nl.corwur.cytoscape.redisgraph.internal.ui.DialogMethods;
 import org.cytoscape.application.swing.AbstractCyAction;
 import org.cytoscape.model.CyNetwork;

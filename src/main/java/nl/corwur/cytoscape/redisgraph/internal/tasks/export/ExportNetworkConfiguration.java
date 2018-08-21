@@ -1,4 +1,4 @@
-package nl.corwur.cytoscape.redisgraph.internal.tasks.exportneo4j;
+package nl.corwur.cytoscape.redisgraph.internal.tasks.export;
 
 import nl.corwur.cytoscape.redisgraph.internal.graph.implementation.Label;
 import nl.corwur.cytoscape.redisgraph.internal.graph.implementation.NodeLabel;

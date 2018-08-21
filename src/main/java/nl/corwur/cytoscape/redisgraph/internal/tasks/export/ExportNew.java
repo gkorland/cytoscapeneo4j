@@ -1,4 +1,4 @@
-package nl.corwur.cytoscape.redisgraph.internal.tasks.exportneo4j;
+package nl.corwur.cytoscape.redisgraph.internal.tasks.export;
 
 import nl.corwur.cytoscape.redisgraph.internal.graph.commands.Command;
 import nl.corwur.cytoscape.redisgraph.internal.graph.commands.CommandBuilder;
