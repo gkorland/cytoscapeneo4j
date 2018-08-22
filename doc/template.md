@@ -4,7 +4,7 @@ The template is specified in an xml file, the user can select the template in th
 Apps -> Cypher Queries -> Import Stored Cypher Query.
 # XML
 The xml contains a query, parameters and a mapping specification. 
-There are two mapping options, a default strategy 'copy all', it just copies all nodes and edges from Neo4j to cytoscape.
+There are two mapping options, a default strategy 'copy all', it just copies all nodes and edges from RedisGraph to cytoscape.
 Or the user can specify an explicit mapping.
 
 ## cytemplate (1)
@@ -32,11 +32,11 @@ Attributes:
 The value of column is calculate by evaluating a javascript expression. 
 The variable 'node' of type 'nl.corwur.cytoscape.redisgraph.internal.graph.GraphNode' is passed into the expression.
 ###### id (0..1)
-The id of the Neo4j node is copied into the column
+The id of the RedisGraph node is copied into the column
 ###### property (0..1)
 The property of the node is copied into the column.
 Attributes:
-- key, the name of the Neo4j property.
+- key, the name of the RedisGraph property.
 ###### label (0..1)
 The label of the node is copied into the column.
 Attributes:
@@ -48,9 +48,9 @@ Attributes:
 - type (java type like java.lang.String)
 - name (string)
 ###### id
-Copy the id of the Neo4j edge into the column
+Copy the id of the RedisGraph edge into the column
 ###### edgeType
-Copy the id of the Neo4j edge into the column
+Copy the id of the RedisGraph edge into the column
 
 ### copyall
 Use a copy all mapping strategy, all nodes and relations form the query are copied.
