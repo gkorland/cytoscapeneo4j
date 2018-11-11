@@ -10,13 +10,13 @@ public class ConnectInstanceMenuAction extends AbstractCyAction {
 
     private static final String MENU_TITLE = "Connect to RedisGraph Instance";
     private static final String MENU_LOC = "Apps.Cypher Queries";
-    private final transient ConnectToNeo4j connectToNeo4j;
+    private final transient ConnectToRedisGraph connectToNeo4j;
 
     public static ConnectInstanceMenuAction create(Services services) {
-        return new ConnectInstanceMenuAction(ConnectToNeo4j.create(services));
+        return new ConnectInstanceMenuAction(ConnectToRedisGraph.create(services));
     }
 
-    private ConnectInstanceMenuAction(ConnectToNeo4j connectToNeo4j) {
+    private ConnectInstanceMenuAction(ConnectToRedisGraph connectToNeo4j) {
         super(MENU_TITLE);
         this.connectToNeo4j = connectToNeo4j;
         setPreferredMenu(MENU_LOC);

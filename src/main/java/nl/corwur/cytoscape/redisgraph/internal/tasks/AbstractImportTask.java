@@ -63,7 +63,7 @@ public abstract class AbstractImportTask extends AbstractTask {
 
             Graph graph = result.get();
 
-            taskMonitor.setTitle("Importing the Neo4j Graph " + networkName);
+            taskMonitor.setTitle("Importing the RedisGraph Graph " + networkName);
 
             // setup network
             CyNetwork network = services.getCyNetworkFactory().createNetwork();
@@ -112,12 +112,12 @@ public abstract class AbstractImportTask extends AbstractTask {
     }
 
     private void explainQuery(String networkName, CypherQuery cypherQuery) throws ClientException {
-        services.getNeo4jClient().explainQuery(networkName, cypherQuery);
+        services.getRedisGraphClient().explainQuery(networkName, cypherQuery);
     }
 
     private Graph getGraph(String networkName, CypherQuery query) {
         try {
-            return services.getNeo4jClient().getGraph(networkName, query);
+            return services.getRedisGraphClient().getGraph(networkName, query);
         } catch (ClientException e) {
             throw new IllegalStateException(e.getMessage(), e);
         }

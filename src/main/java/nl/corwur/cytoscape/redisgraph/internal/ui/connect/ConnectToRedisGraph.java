@@ -8,35 +8,35 @@ import org.cytoscape.application.swing.CySwingApplication;
 
 import javax.swing.*;
 
-public class ConnectToNeo4j {
+public class ConnectToRedisGraph {
 
-    private final Client neo4jClient;
+    private final Client redisGraphClient;
     private final CySwingApplication cySwingApplication;
     private final AppConfiguration appConfiguration;
 
-    private ConnectToNeo4j(Client neo4jClient, CySwingApplication cySwingApplication, AppConfiguration appConfiguration) {
-        this.neo4jClient = neo4jClient;
+    private ConnectToRedisGraph(Client redisGraphClient, CySwingApplication cySwingApplication, AppConfiguration appConfiguration) {
+        this.redisGraphClient = redisGraphClient;
         this.cySwingApplication = cySwingApplication;
         this.appConfiguration = appConfiguration;
     }
 
-    public static ConnectToNeo4j create(Services services) {
-        return new ConnectToNeo4j(
-                services.getNeo4jClient(),
+    public static ConnectToRedisGraph create(Services services) {
+        return new ConnectToRedisGraph(
+                services.getRedisGraphClient(),
                 services.getCySwingApplication(),
                 services.getAppConfiguration());
     }
 
 
     public boolean openConnectDialogIfNotConnected() {
-        if (neo4jClient.isConnected()) {
+        if (redisGraphClient.isConnected()) {
             return true;
         }
         return connect();
     }
 
     public boolean connect() {
-        ConnectDialog connectDialog = new ConnectDialog(cySwingApplication.getJFrame(), neo4jClient::connect,
+        ConnectDialog connectDialog = new ConnectDialog(cySwingApplication.getJFrame(), redisGraphClient::connect,
                 appConfiguration.getNeo4jHost(),
                 appConfiguration.getNeo4jUsername()
         );
@@ -46,6 +46,6 @@ public class ConnectToNeo4j {
             appConfiguration.save();
             JOptionPane.showMessageDialog(this.cySwingApplication.getJFrame(), "Connected");
         }
-        return neo4jClient.isConnected();
+        return redisGraphClient.isConnected();
     }
 }

@@ -58,19 +58,19 @@ public class ExpandNodeEdgeMenuAction implements CyNodeViewContextMenuFactory {
             this.direction = Direction.BIDIRECTIONAL;
             String query = "match (n)-[r]-() where ID(n) = " + refid + " return distinct type(r) as r";
             CypherQuery cypherQuery = CypherQuery.builder().query(query).build();
-            StatementResult result = this.services.getNeo4jClient().getResults(cypherQuery);
+            StatementResult result = this.services.getRedisGraphClient().getResults(cypherQuery);
             result.forEachRemaining(this::addMenuItemsEdges);
 
             this.direction = Direction.IN;
             query = "match (n)<-[r]-() where ID(n) = " + refid + " return distinct type(r) as r";
             cypherQuery = CypherQuery.builder().query(query).build();
-            result = this.services.getNeo4jClient().getResults(cypherQuery);
+            result = this.services.getRedisGraphClient().getResults(cypherQuery);
             result.forEachRemaining(this::addMenuItemsEdges);
 
             this.direction = Direction.OUT;
             query = "match (n)-[r]->() where ID(n) = " + refid + " return distinct type(r) as r";
             cypherQuery = CypherQuery.builder().query(query).build();
-            result = this.services.getNeo4jClient().getResults(cypherQuery);
+            result = this.services.getRedisGraphClient().getResults(cypherQuery);
             result.forEachRemaining(this::addMenuItemsEdges);
 
             CyMenuItem cyMenuItem = new CyMenuItem(this.menu, 0.5f);

@@ -24,7 +24,7 @@ public class ImportAllNodesAndEdgesDialog extends JDialog { //NOSONAR, hierarchy
         JComboBox visualStyleComboBox = new JComboBox(visualStyles);
         JLabel visualStyleLabel = new JLabel("Visual Style");
         JTextField networkNameField = new JTextField(network, 30);
-        JLabel networkNameLabel = new JLabel("Network, (all neo4j nodes with this network property)");
+        JLabel networkNameLabel = new JLabel("Network, (all redisgraph nodes with this network property)");
         JLabel warning = new JLabel("This could result in a very large graph!");
 
         JButton cancelButton = new JButton("Cancel");

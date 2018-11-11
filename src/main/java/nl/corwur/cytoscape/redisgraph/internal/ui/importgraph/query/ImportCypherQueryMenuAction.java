@@ -52,7 +52,7 @@ public class ImportCypherQueryMenuAction extends AbstractCyAction {
             }
             CypherQuery cypherQuery = CypherQuery.builder().query(query).build();
             try {
-                services.getNeo4jClient().explainQuery(cypherQuery);
+                services.getRedisGraphClient().explainQuery(cypherQuery);
                 AbstractImportTask executeCypherQueryTask =
                         services.getTaskFactory().createImportQueryTask(
                                 cypherQueryDialog.getNetwork(),

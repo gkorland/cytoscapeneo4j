@@ -1,7 +1,7 @@
 package nl.corwur.cytoscape.redisgraph.internal.ui;
 
 import nl.corwur.cytoscape.redisgraph.internal.Services;
-import nl.corwur.cytoscape.redisgraph.internal.ui.connect.ConnectToNeo4j;
+import nl.corwur.cytoscape.redisgraph.internal.ui.connect.ConnectToRedisGraph;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,7 +28,7 @@ public class DialogMethods {
     }
 
     public static boolean connect(Services services) {
-        ConnectToNeo4j connectToNeo4j = ConnectToNeo4j.create(services);
+        ConnectToRedisGraph connectToNeo4j = ConnectToRedisGraph.create(services);
         if (!connectToNeo4j.openConnectDialogIfNotConnected()) {
             JOptionPane.showMessageDialog(services.getCySwingApplication().getJFrame(), "Not connected");
             return false;

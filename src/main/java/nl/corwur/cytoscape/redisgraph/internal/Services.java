@@ -30,7 +30,7 @@ public class Services {
     private CyNetworkViewFactory cyNetworkViewFactory;
     private CyLayoutAlgorithmManager cyLayoutAlgorithmManager;
     private VisualMappingManager visualMappingManager;
-    private Client neo4jClient;
+    private Client redisGraphClient;
     private TaskFactory taskFactory;
     private TaskExecutor taskExecutor;
     private CyEventHelper cyEventHelper;
@@ -109,12 +109,12 @@ public class Services {
         this.visualMappingManager = visualMappingManager;
     }
 
-    void setNeo4jClient(Client neo4jClient) {
-        this.neo4jClient = neo4jClient;
+    void setRedisGraphClient(Client redisGraphClient) {
+        this.redisGraphClient = redisGraphClient;
     }
 
-    public Client getNeo4jClient() {
-        return neo4jClient;
+    public Client getRedisGraphClient() {
+        return redisGraphClient;
     }
 
     void setTaskFactory(TaskFactory taskFactory) {

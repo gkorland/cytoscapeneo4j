@@ -43,13 +43,13 @@ public class ExportNetworkToNeo4jTask extends AbstractTask {
                 taskMonitor.showMessage(TaskMonitor.Level.WARN, "No network selected");
             } else {
                 GraphImplementation graphImplementation = ClientGraphImplementation.create(
-                        services.getNeo4jClient(),
+                        services.getRedisGraphClient(),
                         TaskConstants.NEO4J_PROPERTY_CYTOSCAPE_NETWORK,
                         exportNetworkConfiguration.getNodeLabel().getLabel()
                 );
                 Command command = getCypherQuery(cyNetwork).map(cypherQuery -> {
                     try {
-                        Graph grapInDb = services.getNeo4jClient().getGraph(cypherQuery);
+                        Graph grapInDb = services.getRedisGraphClient().getGraph(cypherQuery);
                         return ExportDifference.create(grapInDb, cyNetwork, graphImplementation).compute();
                     } catch (ClientException e) {
                         throw new IllegalStateException(e);

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class ImportAllNodesAndEdgesMenuAction extends AbstractCyAction {
 
-    private static final String MENU_TITLE = "Import all nodes and edges from Neo4j";
+    private static final String MENU_TITLE = "Import all nodes and edges from RedisGraph";
     private static final String MENU_LOC = "Apps.Cypher Queries";
 
     private final transient Services services;
@@ -37,17 +37,16 @@ public class ImportAllNodesAndEdgesMenuAction extends AbstractCyAction {
 
         ImportAllNodesAndEdgesDialog importAllNodesAndEdgesDialog = new ImportAllNodesAndEdgesDialog(services.getCySwingApplication().getJFrame(), getAllVisualStyleTitle());
         importAllNodesAndEdgesDialog.showDialog();
-        if (importAllNodesAndEdgesDialog.isExecuteQuery()) {
-
-            AbstractImportTask importAllNodesAndEdgesFromNeo4jTask =
-                    services.getTaskFactory().createImportAllNodesAndEdgesFromNeo4jTask(
-                            importAllNodesAndEdgesDialog.getNetwork(),
-                            importAllNodesAndEdgesDialog.getVisualStyleTitle()
-                    );
-            services.getTaskExecutor().execute(importAllNodesAndEdgesFromNeo4jTask);
-        } else {
-            return;
+        if (!importAllNodesAndEdgesDialog.isExecuteQuery()) {
+        	return;
         }
+        
+        AbstractImportTask importAllNodesAndEdgesFromGraphTask =
+                services.getTaskFactory().createImportAllNodesAndEdgesFromNeo4jTask(
+                        importAllNodesAndEdgesDialog.getNetwork(),
+                        importAllNodesAndEdgesDialog.getVisualStyleTitle()
+                );
+        services.getTaskExecutor().execute(importAllNodesAndEdgesFromGraphTask);
     }
 
 

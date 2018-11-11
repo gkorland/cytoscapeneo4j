@@ -2,7 +2,7 @@ package nl.corwur.cytoscape.redisgraph.internal.ui;
 
 import nl.corwur.cytoscape.redisgraph.internal.Services;
 import nl.corwur.cytoscape.redisgraph.internal.tasks.TaskExecutor;
-import nl.corwur.cytoscape.redisgraph.internal.ui.connect.ConnectToNeo4j;
+import nl.corwur.cytoscape.redisgraph.internal.ui.connect.ConnectToRedisGraph;
 import org.cytoscape.application.swing.AbstractCyAction;
 import org.cytoscape.work.AbstractTask;
 
@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 public class TaskMenuAction extends AbstractCyAction {
 
     private static final String MENU_LOC = "Apps.Cypher Queries";
-    private final transient ConnectToNeo4j connectToNeo4j;
+    private final transient ConnectToRedisGraph connectToNeo4j;
     private final transient TaskExecutor taskExecutor;
     private final transient Supplier<AbstractTask> taskSupplier;
 
@@ -24,7 +24,7 @@ public class TaskMenuAction extends AbstractCyAction {
         super(menuTitle);
         this.taskSupplier = taskSupplier;
         this.taskExecutor = services.getTaskExecutor();
-        this.connectToNeo4j = ConnectToNeo4j.create(services);
+        this.connectToNeo4j = ConnectToRedisGraph.create(services);
         setPreferredMenu(MENU_LOC);
         setEnabled(false);
         setMenuGravity(0.1f);

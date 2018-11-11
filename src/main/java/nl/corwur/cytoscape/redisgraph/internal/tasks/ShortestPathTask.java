@@ -91,7 +91,7 @@ public class ShortestPathTask extends AbstractNetworkTask implements Task {
 
     private Graph getGraph(CypherQuery query) {
         try {
-            return services.getNeo4jClient().getGraph(query);
+            return services.getRedisGraphClient().getGraph(query);
         } catch (ClientException e) {
             throw new IllegalStateException(e.getMessage(), e);
         }

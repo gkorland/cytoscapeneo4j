@@ -158,7 +158,7 @@ public class CyActivator extends AbstractCyActivator {
         services.setVisualMappingManager(getService(context, VisualMappingManager.class));
         services.setCyEventHelper(getService(context, CyEventHelper.class));
         services.setVisualStyleFactory(getService(context, VisualStyleFactory.class));
-        services.setNeo4jClient(new Client());
+        services.setRedisGraphClient(new Client());
         services.setTaskFactory(TaskFactory.create(services));
         services.setTaskExecutor(TaskExecutor.create(services));
         return services;
