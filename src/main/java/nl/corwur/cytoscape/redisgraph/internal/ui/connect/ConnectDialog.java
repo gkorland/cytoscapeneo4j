@@ -53,7 +53,7 @@ class ConnectDialog extends JDialog { //NOSONAR , hierarchy level > 5
 
     private void init() {
 
-        setTitle("Connect to Neo4J");
+        setTitle("Connect to RedisGraph");
 
         JPanel topPanel = new JPanel(new GridBagLayout());
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -123,12 +123,12 @@ class ConnectDialog extends JDialog { //NOSONAR , hierarchy level > 5
             ok = true;
             dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "Cannot connect to Neo4j");
+            JOptionPane.showMessageDialog(this, "Cannot connect to RedisGraph");
         }
     }
 
     public static void main(String[] args) {
-        ConnectDialog connectDialog = new ConnectDialog(null, connectionParameter -> true, "localhost", "neo4j");
+        ConnectDialog connectDialog = new ConnectDialog(null, connectionParameter -> true, "localhost", "");
         connectDialog.showConnectDialog();
 
     }

@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 @SuppressWarnings("serial")
 public class ConnectInstanceMenuAction extends AbstractCyAction {
 
-    private static final String MENU_TITLE = "Connect to Neo4j Instance";
+    private static final String MENU_TITLE = "Connect to RedisGraph Instance";
     private static final String MENU_LOC = "Apps.Cypher Queries";
     private final transient ConnectToNeo4j connectToNeo4j;
 
