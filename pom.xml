@@ -5,12 +5,46 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.redislabs</groupId>
     <artifactId>cytoscape-redisgraph-plugin</artifactId>
-    <version>0.4</version>
+	<version>1.0.0-SNAPSHOT</version>
     <name>Cytoscape RedisGraph Plugin</name>
 
+	<description>Cytoscape Plugin for Redis-Graph</description>
+	<url>https://oss.redislabs.com/redisgraph</url>
+
+	<organization>
+		<name>RedisLabs</name>
+		<url>www.redislabs.com</url>
+	</organization>
+	<ciManagement>
+		<system>CircleCI</system>
+		<url>https://circleci.com/gh/RedisLabs/cytoscaperedisgraph</url>
+	</ciManagement>
+	<issueManagement>
+		<url>https://github.com/RedisLabs/cytoscaperedisgraph/issues</url>
+		<system>Github</system>
+	</issueManagement>
+	<scm>
+		<url>https://github.com/RedisLabs/cytoscaperedisgraph</url>
+		<connection>scm:git:git://github.com/RedisLabs/cytoscaperedisgraph.git</connection>
+		<developerConnection>scm:git:git@github.com:RedisLabs/cytoscaperedisgraph.git</developerConnection>
+	</scm>
+	<developers>
+		<developer>
+			<name>Guy Korland</name>
+			<organization>Redis Labs, Inc.</organization>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
     <properties>
-        <bundle.symbolicName>nl.corwur.cytoscape.redisgraph</bundle.symbolicName>
-        <bundle.namespace>nl.corwur.cytoscape.redisgraph</bundle.namespace>
+        <bundle.symbolicName>com.redislabs.cytoscape.redisgraph</bundle.symbolicName>
+        <bundle.namespace>com.redislabs.cytoscape.redisgraph</bundle.namespace>
         <cytoscape.version>3.5.0</cytoscape.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.osgi.core.version>4.2.0</org.osgi.core.version>
@@ -28,7 +62,16 @@
         <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
         <maven-enforcer-plugin.version>3.0.0-M1</maven-enforcer-plugin.version>
     </properties>
-
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
     <profiles>
         <profile>
             <id>it-test</id>
@@ -149,6 +192,8 @@
                     <archive>
                         <manifestEntries>
                             <Cytoscape-App-Name>Cypher Queries for RedisGraph</Cytoscape-App-Name>
+							<Cytoscape-App-Version>0.1</Cytoscape-App-Version>
+                            <Cytoscape-API-Compatibility>3.0</Cytoscape-API-Compatibility>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -160,10 +205,66 @@
                 <configuration>
                     <timestampedReports>false</timestampedReports>
                     <excludedClasses>
-                        <excludedClass>nl.corwur.cytoscape.redisgraph.internal.Services</excludedClass>
+                        <excludedClass>com.redislabs.cytoscape.redisgraph.internal.Services</excludedClass>
                     </excludedClasses>
                 </configuration>
             </plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+
+			<!--Include sources and docs -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!--Sign the components - this is required by maven central for releases -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
         </plugins>
     </build>
 
@@ -186,7 +287,7 @@
         <dependency>
       		<groupId>com.redislabs</groupId>
       		<artifactId>jredisgraph</artifactId>
-      		<version>1.0.2</version>
+      		<version>1.0.3</version>
     	</dependency>
 	    <dependency>
       		<groupId>org.apache.ant</groupId>

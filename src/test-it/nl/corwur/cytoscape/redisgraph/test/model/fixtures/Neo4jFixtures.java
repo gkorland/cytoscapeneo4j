@@ -1,11 +1,11 @@
-package nl.corwur.cytoscape.redisgraph.test.model.fixtures;
+package com.redislabs.cytoscape.redisgraph.test.model.fixtures;
 
-import nl.corwur.cytoscape.redisgraph.internal.graph.implementation.GraphImplementation;
-import nl.corwur.cytoscape.redisgraph.internal.graph.implementation.GraphImplementationException;
-import nl.corwur.cytoscape.redisgraph.internal.graph.implementation.PropertyKey;
-import nl.corwur.cytoscape.redisgraph.internal.neo4j.Neo4jClient;
-import nl.corwur.cytoscape.redisgraph.internal.neo4j.Neo4jGraphImplementation;
-import nl.corwur.cytoscape.redisgraph.internal.tasks.TaskConstants;
+import com.redislabs.cytoscape.redisgraph.internal.graph.implementation.GraphImplementation;
+import com.redislabs.cytoscape.redisgraph.internal.graph.implementation.GraphImplementationException;
+import com.redislabs.cytoscape.redisgraph.internal.graph.implementation.PropertyKey;
+import com.redislabs.cytoscape.redisgraph.internal.neo4j.Neo4jClient;
+import com.redislabs.cytoscape.redisgraph.internal.neo4j.Neo4jGraphImplementation;
+import com.redislabs.cytoscape.redisgraph.internal.tasks.TaskConstants;
 
 import java.util.Collections;
 import java.util.HashMap;

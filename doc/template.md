@@ -30,7 +30,7 @@ Attributes:
 - name, the name of the column the value is copied into
 ###### expression (0..1)
 The value of column is calculate by evaluating a javascript expression. 
-The variable 'node' of type 'nl.corwur.cytoscape.redisgraph.internal.graph.GraphNode' is passed into the expression.
+The variable 'node' of type 'com.redislabs.cytoscape.redisgraph.internal.graph.GraphNode' is passed into the expression.
 ###### id (0..1)
 The id of the RedisGraph node is copied into the column
 ###### property (0..1)

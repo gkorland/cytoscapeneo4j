@@ -1,4 +1,4 @@
-package nl.corwur.cytoscape.redisgraph.test.model.fixtures;
+package com.redislabs.cytoscape.redisgraph.test.model.fixtures;
 
 import org.cytoscape.equations.EquationCompiler;
 import org.cytoscape.equations.Interpreter;
