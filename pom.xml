@@ -47,7 +47,7 @@
         <bundle.namespace>com.redislabs.cytoscape.redisgraph</bundle.namespace>
         <cytoscape.version>3.5.0</cytoscape.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.osgi.core.version>4.2.0</org.osgi.core.version>
+        <org.osgi.core.version>4.3.1</org.osgi.core.version>
         <neo4j-java-driver.version>1.7.5</neo4j-java-driver.version>
         <pax-logging-api.version>1.5.2</pax-logging-api.version>
         <junit.version>4.12</junit.version>
